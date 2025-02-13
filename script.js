@@ -51,7 +51,7 @@ function playing_game(n_times=5){
     h = c = 0
     for (let i=0; i<n_times; i++) {
         console.log(`${i+1}° round`)
-        human_choicee = prompt('Rock, Paper os Scissors, sir?');
+        human_choicee = prompt('Rock, Paper os Scissors, sir?').toLowerCase();
         computer_choicee = computer_choice();
         game_result = result(computer_choicee, human_choicee);
         if (game_result == "human") {h++} else if (game_result == "computer") {c++}
