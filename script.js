@@ -8,7 +8,7 @@ function computer_choice() {
 }
 
 function result(computer_choice, human_choice) {
-    console.log(`Computer picked ${computer_choice} /nHuman picked ${human_choice}`);
+    console.log(`Computer picked ${computer_choice} \nHuman picked ${human_choice}`);
     if (computer_choice == human_choice) {
         return "draw";
     } else {
