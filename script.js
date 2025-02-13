@@ -43,9 +43,6 @@ function winner(game_result, dict_choices) {
         case ("human"): 
             console.log("HUMANS are the  best!");
             break;
-        case ("draw"):
-            console.log("Drawww");
-            break;
     }
     return dict_choices[game_result]
 }
@@ -58,6 +55,7 @@ function playing_game(n_times=5){
         computer_choicee = computer_choice();
         game_result = result(computer_choicee, human_choicee);
         if (game_result == "human") {h++} else if (game_result == "computer") {c++}
+        console.log(`Computer ${c} X ${h} Humans`)
     }
     console.log("******* Final result: *******")
     if (h > c) {
