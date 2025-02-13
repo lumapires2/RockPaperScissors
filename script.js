@@ -7,13 +7,13 @@ function computer_choice() {
     } else {return "paper"}
 }
 
-function result(computer_choice, human_choice) {
-    console.log(`Computer picked ${computer_choice} \nHuman picked ${human_choice}`);
-    if (computer_choice == human_choice) {
+function result(computer_choicee, human_choice) {
+    console.log(`Computer picked ${computer_choicee} \nHuman picked ${human_choice}`);
+    if (computer_choicee == human_choice) {
         return "draw";
     } else {
-        let dict_choices = {computer_choice: "computer", human_choice: "human"};
-        return winner(rockPaperScissors(computer_choice, human_choice), dict_choices)}
+        let dict_choices = {[computer_choicee]: "computer", [human_choice]: "human"};
+        return winner(rockPaperScissors(computer_choicee, human_choice), dict_choices)}
 }
 
 // Rock: 0; Paper: 1; Scissors: 2;
