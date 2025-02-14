@@ -1,11 +1,11 @@
 function playing_game(n_times=5){
     let human_points = 0
-    let computer_choice = 0
+    let computer_points = 0
     for (let i=0; i<n_times; i++) {
         console.log(`<><><> ${i+1}° round <><><>`)
         human_choice = prompt('Rock, Paper os Scissors, sir?').toLowerCase();
         computer_choice = getting_computer_choice();
-        game_result = getting_result(computer_choice, human_choice);
+        game_result = getting_round_winner(computer_choice, human_choice);
         if (game_result == "human") {human_points++} else if (game_result == "computer") {computer_points++}
         console.log(`Computer ${computer_points} X ${human_points} Humans`)
     }
@@ -21,8 +21,7 @@ function getting_computer_choice() {
     } else {return "paper"}
 }
 
-// Rock? Paper? Scissors? Or draw?
-function getting_result(computer_choice, human_choice) {
+function getting_round_winner(computer_choice, human_choice) {
     console.log(`Computer picked ${computer_choice} \nHuman picked ${human_choice}`);
     if (computer_choice == human_choice) {
         return "draw";
@@ -33,7 +32,6 @@ function getting_result(computer_choice, human_choice) {
 }
 
 // Rock Paper Scissors Logic: given two diferent choices, who wins?
-// Rock: 0; Paper: 1; Scissors: 2;
 function rockPaperScissors(player_1_choice, player_2_choice) {
     let dict_choices = {"rock": 0, "paper": 1, "scissors": 2};
     let n_player_1_choice = dict_choices[player_1_choice];
