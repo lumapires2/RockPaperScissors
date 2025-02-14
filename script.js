@@ -7,6 +7,7 @@ function computer_choice() {
     } else {return "paper"}
 }
 
+// Rock? Paper? Scissors? Or draw?
 function result(computer_choicee, human_choice) {
     console.log(`Computer picked ${computer_choicee} \nHuman picked ${human_choice}`);
     if (computer_choicee == human_choice) {
@@ -16,6 +17,7 @@ function result(computer_choicee, human_choice) {
         return winner(rockPaperScissors(computer_choicee, human_choice), dict_choices)}
 }
 
+// Rock Paper Scissors Logic: given two diferent choices, who wins?
 // Rock: 0; Paper: 1; Scissors: 2;
 function rockPaperScissors(player_1_choice, player_2_choice) {
     let dict_choices = {"rock": 0, "paper": 1, "scissors": 2};
@@ -35,6 +37,7 @@ function rockPaperScissors(player_1_choice, player_2_choice) {
     }
 }
 
+// win (human), draw or defeat (computer)?
 function winner(game_result, dict_choices) {
     switch (dict_choices[game_result]) {
         case "computer": 
