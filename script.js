@@ -1,21 +1,14 @@
 function playing_game(n_times=5){
-    h = c = 0
+    human_points = computer_points = 0
     for (let i=0; i<n_times; i++) {
         console.log(`<><><> ${i+1}° round <><><>`)
         human_choice = prompt('Rock, Paper os Scissors, sir?').toLowerCase();
         computer_choice = getting_computer_choice();
         game_result = getting_result(computer_choice, human_choice);
-        if (game_result == "human") {h++} else if (game_result == "computer") {c++}
-        console.log(`Computer ${c} X ${h} Humans`)
+        if (game_result == "human") {human_points++} else if (game_result == "computer") {computer_points++}
+        console.log(`Computer ${computer_points} X ${human_points} Humans`)
     }
-    console.log("******* Final result: *******")
-    if (h > c) {
-        console.log("Human win :D")
-    } else if (c > h) {
-        console.log("Computer win :(")
-    } else {
-        console.log("Draw :/")
-    }
+    getting_final_result(computer_points, human_points);
 }
 
 function getting_computer_choice() {
@@ -34,20 +27,8 @@ function getting_result(computer_choice, human_choice) {
         return "draw";
     } else {
         let dict_choices = {[computer_choice]: "computer", [human_choice]: "human"};
-        return getting_winner(rockPaperScissors(computer_choice, human_choice), dict_choices)}
-}
-
-// human (win), draw or computer (defeat)?
-function getting_winner(game_result, dict_choices) {
-    switch (dict_choices[game_result]) {
-        case "computer": 
-            console.log("COMPUTER running the world!");
-            break;
-        case ("human"): 
-            console.log("HUMANS are the  best!");
-            break;
-    }
-    return dict_choices[game_result]
+        game_result = rockPaperScissors(computer_choice, human_choice)
+        return dict_choices[game_result]}
 }
 
 // Rock Paper Scissors Logic: given two diferent choices, who wins?
@@ -67,5 +48,16 @@ function rockPaperScissors(player_1_choice, player_2_choice) {
         case 3: 
             console.log("Scissors beats Paper!!!");
             return "scissors"
+    }
+}
+
+function getting_final_result(computer_points, human_points) {
+    console.log("******* Final result: *******")
+    if (human_points > computer_points) {
+        console.log("Human win :D");
+    } else if (computer_points > human_points) {
+        console.log("Computer win :(");
+    } else {
+        console.log("Draw :/");
     }
 }
