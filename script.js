@@ -2,9 +2,9 @@ function playing_game(n_times=5){
     h = c = 0
     for (let i=0; i<n_times; i++) {
         console.log(`<><><> ${i+1}° round <><><>`)
-        human_choicee = prompt('Rock, Paper os Scissors, sir?').toLowerCase();
-        computer_choicee = computer_choice();
-        game_result = result(computer_choicee, human_choicee);
+        human_choice = prompt('Rock, Paper os Scissors, sir?').toLowerCase();
+        computer_choice = getting_computer_choice();
+        game_result = getting_result(computer_choice, human_choice);
         if (game_result == "human") {h++} else if (game_result == "computer") {c++}
         console.log(`Computer ${c} X ${h} Humans`)
     }
@@ -18,7 +18,7 @@ function playing_game(n_times=5){
     }
 }
 
-function computer_choice() {
+function getting_computer_choice() {
     let random_number = Math.random();
     if (random_number < 1/3) {
         return "rock"
@@ -28,17 +28,17 @@ function computer_choice() {
 }
 
 // Rock? Paper? Scissors? Or draw?
-function result(computer_choicee, human_choice) {
-    console.log(`Computer picked ${computer_choicee} \nHuman picked ${human_choice}`);
-    if (computer_choicee == human_choice) {
+function getting_result(computer_choice, human_choice) {
+    console.log(`Computer picked ${computer_choice} \nHuman picked ${human_choice}`);
+    if (computer_choice == human_choice) {
         return "draw";
     } else {
-        let dict_choices = {[computer_choicee]: "computer", [human_choice]: "human"};
-        return winner(rockPaperScissors(computer_choicee, human_choice), dict_choices)}
+        let dict_choices = {[computer_choice]: "computer", [human_choice]: "human"};
+        return getting_winner(rockPaperScissors(computer_choice, human_choice), dict_choices)}
 }
 
 // human (win), draw or computer (defeat)?
-function winner(game_result, dict_choices) {
+function getting_winner(game_result, dict_choices) {
     switch (dict_choices[game_result]) {
         case "computer": 
             console.log("COMPUTER running the world!");
