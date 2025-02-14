@@ -1,5 +1,6 @@
 function playing_game(n_times=5){
-    human_points = computer_points = 0
+    let human_points = 0
+    let computer_choice = 0
     for (let i=0; i<n_times; i++) {
         console.log(`<><><> ${i+1}° round <><><>`)
         human_choice = prompt('Rock, Paper os Scissors, sir?').toLowerCase();
@@ -27,7 +28,7 @@ function getting_result(computer_choice, human_choice) {
         return "draw";
     } else {
         let dict_choices = {[computer_choice]: "computer", [human_choice]: "human"};
-        game_result = rockPaperScissors(computer_choice, human_choice)
+        let game_result = rockPaperScissors(computer_choice, human_choice)
         return dict_choices[game_result]}
 }
 
@@ -35,9 +36,9 @@ function getting_result(computer_choice, human_choice) {
 // Rock: 0; Paper: 1; Scissors: 2;
 function rockPaperScissors(player_1_choice, player_2_choice) {
     let dict_choices = {"rock": 0, "paper": 1, "scissors": 2};
-    n_player_1_choice = dict_choices[player_1_choice];
-    n_player_2_choice = dict_choices[player_2_choice];
-    sum = n_player_1_choice + n_player_2_choice;
+    let n_player_1_choice = dict_choices[player_1_choice];
+    let n_player_2_choice = dict_choices[player_2_choice];
+    let sum = n_player_1_choice + n_player_2_choice;
     switch (sum) {
         case 1: 
             console.log("Paper beats Rock!!!");
