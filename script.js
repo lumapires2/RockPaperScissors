@@ -1,3 +1,23 @@
+function playing_game(n_times=5){
+    h = c = 0
+    for (let i=0; i<n_times; i++) {
+        console.log(`<><><> ${i+1}° round <><><>`)
+        human_choicee = prompt('Rock, Paper os Scissors, sir?').toLowerCase();
+        computer_choicee = computer_choice();
+        game_result = result(computer_choicee, human_choicee);
+        if (game_result == "human") {h++} else if (game_result == "computer") {c++}
+        console.log(`Computer ${c} X ${h} Humans`)
+    }
+    console.log("******* Final result: *******")
+    if (h > c) {
+        console.log("Human win :D")
+    } else if (c > h) {
+        console.log("Computer win :(")
+    } else {
+        console.log("Draw :/")
+    }
+}
+
 function computer_choice() {
     let random_number = Math.random();
     if (random_number < 1/3) {
@@ -17,6 +37,19 @@ function result(computer_choicee, human_choice) {
         return winner(rockPaperScissors(computer_choicee, human_choice), dict_choices)}
 }
 
+// human (win), draw or computer (defeat)?
+function winner(game_result, dict_choices) {
+    switch (dict_choices[game_result]) {
+        case "computer": 
+            console.log("COMPUTER running the world!");
+            break;
+        case ("human"): 
+            console.log("HUMANS are the  best!");
+            break;
+    }
+    return dict_choices[game_result]
+}
+
 // Rock Paper Scissors Logic: given two diferent choices, who wins?
 // Rock: 0; Paper: 1; Scissors: 2;
 function rockPaperScissors(player_1_choice, player_2_choice) {
@@ -34,38 +67,5 @@ function rockPaperScissors(player_1_choice, player_2_choice) {
         case 3: 
             console.log("Scissors beats Paper!!!");
             return "scissors"
-    }
-}
-
-// win (human), draw or defeat (computer)?
-function winner(game_result, dict_choices) {
-    switch (dict_choices[game_result]) {
-        case "computer": 
-            console.log("COMPUTER running the world!");
-            break;
-        case ("human"): 
-            console.log("HUMANS are the  best!");
-            break;
-    }
-    return dict_choices[game_result]
-}
-
-function playing_game(n_times=5){
-    h = c = 0
-    for (let i=0; i<n_times; i++) {
-        console.log(`<><><> ${i+1}° round <><><>`)
-        human_choicee = prompt('Rock, Paper os Scissors, sir?').toLowerCase();
-        computer_choicee = computer_choice();
-        game_result = result(computer_choicee, human_choicee);
-        if (game_result == "human") {h++} else if (game_result == "computer") {c++}
-        console.log(`Computer ${c} X ${h} Humans`)
-    }
-    console.log("******* Final result: *******")
-    if (h > c) {
-        console.log("Human win :D")
-    } else if (c > h) {
-        console.log("Computer win :(")
-    } else {
-        console.log("Draw :/")
     }
 }
