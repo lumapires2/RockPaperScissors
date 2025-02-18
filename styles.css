@@ -57,7 +57,7 @@ li{
 
 .options li{
     border-radius: 10px;
-    border-color: white;
+    border-color: rgba(255, 255, 255, 0.281);
     border-style: solid;
 }
 
